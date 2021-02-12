@@ -27,7 +27,7 @@ public class Lesson2 {
             System.out.print(two[i] + "  ");
         }
 
-//        3 задание:
+        // 3 задание:
 
         int[] three = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println();
@@ -37,7 +37,7 @@ public class Lesson2 {
             }System.out.print( three[i] + " ");
         }
 
-//        4 задание:
+        // 4 задание:
 
         System.out.print("\r\n");// строка прописана для пробела т.к. массив соединяется с преведущим из-за чего не получается куб
 
@@ -55,7 +55,7 @@ public class Lesson2 {
         // 6 задание:
         
         int[] six = {1, 1, 1, 2, 1};
-        System.out.println("Answer to task = " + checkBalance(six));
+        System.out.println("Answer to task six = " + checkBalance(six));
     }
     private static boolean checkBalance(int[] arr) {
         int leftSum, rightSum;
@@ -72,4 +72,5 @@ public class Lesson2 {
         }
         return false;
     }
+
 }
