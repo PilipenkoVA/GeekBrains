@@ -7,6 +7,10 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+/.idea
+/src
+.xml
+.iml
 
 # Icon must end with two \r
 Icon
