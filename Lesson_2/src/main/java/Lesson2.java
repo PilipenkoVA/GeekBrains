@@ -51,5 +51,23 @@ public class Lesson2 {
             System.out.println();
         }
 
+        // 6 задание:
+        int[] six = {1, 1, 1, 2, 1};
+        System.out.println("Answer to task = " + checkBalance(six));
+    }
+    private static boolean checkBalance(int[] arr) {
+        int leftSum, rightSum;
+        for (int i = 0; i < arr.length + 1; i++) {
+            leftSum = 0;
+            rightSum = 0;
+            for (int j = 0; j < i; j++) {
+                leftSum += arr[j];
+            }
+            for (int j = i; j < arr.length; j++) {
+                rightSum += arr[j];
+            }
+            if (leftSum == rightSum) return true;
+        }
+        return false;
     }
 }
