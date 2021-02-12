@@ -3,7 +3,7 @@ public class Lesson {
 
     public static void main(String[] args) {
 
-//        1 задание:
+        // 1 задание:
 
         int[] one = {1, 1, 0, 0, 0, 1, 1};
         for (int i = 0; i < one.length; i++) {
@@ -53,7 +53,7 @@ public class Lesson {
             System.out.println();
         }
 
-        
+
         // 5 задание:
 
         int[] five = {7, 1, 3, 8, 5, 2};
@@ -82,6 +82,7 @@ public class Lesson {
 
 
         // 6 задание:
+
         System.out.print("\r\n"); // строка прописана для пробела т.к. массив соединяется с преведущим
 
         int[] six = {1, 1, 1, 2, 1};
