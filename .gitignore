@@ -23,6 +23,8 @@ Icon
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+.xml
+.iml
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -30,6 +32,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-idea
+.idea
+target
+src
 
 # End of https://www.toptal.com/developers/gitignore/api/osx
