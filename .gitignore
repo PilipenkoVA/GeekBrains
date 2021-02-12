@@ -1,43 +1,15 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/osx
-# Edit at https://www.toptal.com/developers/gitignore?templates=osx
-
-### OSX ###
-# General
+# OS X hidden files
 .DS_Store
-.AppleDouble
-.LSOverride
-/.idea
-/src
-.xml
-.iml
-
-# Icon must end with two \r
-Icon
-
-
-# Thumbnails
+.DS_Store?
 ._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
 .Spotlight-V100
-.TemporaryItems
 .Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+ehthumbs.db
+Thumbs.db
+
+# Intellij Idea
+.idea
+src
 .xml
 .iml
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-/.idea
-/target
-/src
-
-# End of https://www.toptal.com/developers/gitignore/api/osx
