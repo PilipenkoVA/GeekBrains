@@ -1,4 +1,4 @@
 /target
-/.idea
-Lesson_2.imliml
-pom.xml
+*.idea
+*.iml
+*.xml
