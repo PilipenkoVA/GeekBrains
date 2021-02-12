@@ -38,6 +38,7 @@ public class Lesson2 {
         }
 
 //        4 задание:
+
         System.out.print("\r\n");// строка прописана для пробела т.к. массив соединяется с преведущим из-за чего не получается куб
 
         int four[][] = new int[5][5];
@@ -52,6 +53,7 @@ public class Lesson2 {
         }
 
         // 6 задание:
+        
         int[] six = {1, 1, 1, 2, 1};
         System.out.println("Answer to task = " + checkBalance(six));
     }
