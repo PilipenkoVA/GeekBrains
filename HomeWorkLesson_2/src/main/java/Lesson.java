@@ -53,7 +53,36 @@ public class Lesson {
             System.out.println();
         }
 
+        
+        // 5 задание:
+
+        int[] five = {7, 1, 3, 8, 5, 2};
+        int Max = five.length;
+        for (int i = 0; i < five.length; i++) {
+            int arr = five[i];
+            for (int j = 0; j < five.length; j++) {
+                if (arr > five[j] && arr > Max){
+                    Max = arr;
+                }
+            }
+        }
+        System.out.print("Answer to task five: Max = "+ Max);
+
+        System.out.print("\r\n");// строка прописана для пробела т.к. массив соединяется с преведущим
+
+        int Min = five.length;
+        for (int i = 0; i < five.length; i++) {
+            int arr = five[i];
+            for (int j = 0; j < five.length; j++) {
+                if (arr < five[j] && arr < Min){
+                    Min = arr;
+                }
+            }
+        }System.out.print("Answer to task five: Min = "+ Min);
+
+
         // 6 задание:
+        System.out.print("\r\n"); // строка прописана для пробела т.к. массив соединяется с преведущим
 
         int[] six = {1, 1, 1, 2, 1};
         System.out.println("Answer to task six = " + checkBalance(six));
@@ -74,4 +103,5 @@ public class Lesson {
         }
         return false;
     }
+
 }
