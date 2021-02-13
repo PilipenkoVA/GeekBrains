@@ -15,20 +15,22 @@ public class Lesson {
 
     }
     private static void playLevel (int range, int number){
-        while (true){// Заменить бесконечный цикл на 3 попытки
+        int n = 3;
+        while (n > 0){
             System.out.println("Угадайте число от 0 до " + range);
             int input_number = scanner.nextInt();
             if (input_number == number){
                 System.out.println("Вы угадали");
-                // заменить на бесконечный цикл игр но с выводом сообщение "Выхотите продолжить игру" (да)(нет)
                 break;
             }else if (input_number < number){
                 System.out.println("Данное число меньше");
+                n--;
             }else {
                 System.out.println("Данное число больше");
+                n--;
             }
         }
     }
-    
-
+//  НЕ ХВАТАЕТ :После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
+//  Программа в данный момент дает только три попытки для ввода, необходимо дать возможность Повторить игру
 }
