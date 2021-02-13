@@ -11,7 +11,6 @@ public class Lesson {
         int range = 9;
         int number = (int) (Math.random() * range);
         playLevel(range, number);
-
         scanner.close();
 
     }
@@ -30,8 +29,6 @@ public class Lesson {
             }
         }
     }
-    //  2 задание:
-    private static String isWord (String[] arr){
-        String[] words = {apple, orange, lemon, banana, apricot, avocado, broccoli, carrot, cherry, garlic, grape, melon, leak, kiwi, mango, mushroom, nut, olive, pea, peanut, pear, pepper, pineapple, pumpkin, potato};
-    }
+    
+
 }
