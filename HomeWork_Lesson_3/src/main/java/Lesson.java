@@ -4,6 +4,9 @@ public class Lesson {
 
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+
+        // 1 задание:
+
         System.out.println("Ваша задача угадать число");
         int range = 9;
         int number = (int) (Math.random() * range);
@@ -26,5 +29,9 @@ public class Lesson {
                 System.out.println("Данное число больше");
             }
         }
+    }
+    //  2 задание:
+    private static String isWord (String[] arr){
+        String[] words = {apple, orange, lemon, banana, apricot, avocado, broccoli, carrot, cherry, garlic, grape, melon, leak, kiwi, mango, mushroom, nut, olive, pea, peanut, pear, pepper, pineapple, pumpkin, potato};
     }
 }
