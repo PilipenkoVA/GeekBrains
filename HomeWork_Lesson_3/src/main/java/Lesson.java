@@ -7,12 +7,13 @@ public class Lesson {
 
         // 1 задание:
 
-        System.out.println("Ваша задача угадать число");
+
         playLevel();
         scanner.close();
 
     }
     private static void playLevel (){
+        System.out.println("Ваша задача угадать число");
         int n = 3;
         int range = 9;
         int number = (int) (Math.random() * range);
@@ -37,7 +38,7 @@ public class Lesson {
                 if (input_level == a){
                     break;
                 }else {
-                    n = 3;
+                    playLevel();
                 }
             }
         }
