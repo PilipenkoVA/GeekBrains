@@ -1,3 +1,3 @@
 # GeekBrains - JAVA homework
-Lesson 2
-Lesson 3
+Lesson 2 and Lesson 3
+
