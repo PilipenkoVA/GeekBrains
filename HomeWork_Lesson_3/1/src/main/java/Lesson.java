@@ -12,40 +12,41 @@ public class Lesson {
         scanner.close();
 
     }
-    // 1 задание:
+    // Игра №1 "Угадай число":
 
     private static void playLevelOne (){
         System.out.println("Ваша задача угадать число");
-        int n = 3;
+        int round = 3;
         int range = 9;
         int number = (int) (Math.random() * range);
-        while (n > 0){
+        while (round > 0){
             System.out.println("Угадайте число от 0 до " + range);
-            System.out.println("У вас  " + n + " попытки");
+            System.out.println("У вас  " + round + " попытки");
             int input_number = scanner.nextInt();
             if (input_number == number){
                 System.out.println("Вы угадали");
             }else if (input_number < number){
-                System.out.println("Данное число меньше");
-                n--;
+                System.out.println("Загаданное число больше");
+                round--;
             }else {
-                System.out.println("Данное число больше");
-                n--;
-            }if (n == 0 || input_number == number){
-                int a = 0;
-                int b = 1;
+                System.out.println("Загаданное число меньше");
+                round--;
+            }if (round == 0 || input_number == number){
                 System.out.println("THE END");
-                System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+                // запускаем повтор игры
+                int not = 1;
+                int yes = 2;
+                System.out.println("Повторить игру еще раз? 1 – NO / 2 – YES");
                 int input_level = scanner.nextInt();
-                if (input_level == a){
-                    break;
-                }else {
+                if (input_level == yes){
                     playLevelOne();
+                }else {
+                    return;
                 }
             }
         }
     }
-    // 2 задание:
+    // Игра №2 "Угадай слово":
 
     private static void playLevelTwo(){
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry",
@@ -67,10 +68,10 @@ public class Lesson {
                 break;
             }else if (word.equals(answer)) {
                 System.out.println("Вы угадали слово, игра закончена!!!");
-                break;
+                return;
             }
             char[] charsAnswer = answer.toCharArray();     // из введенного слова делаем массив для проведения посимвольной проверки
-            for (int i = 0; i < lenWord; i++) {            //  условие массива (определяем количество символов в загаданном слове
+            for (int i = 0; i < lenWord; i++) {
                 if (i >= charsAnswer.length) {
                     break;
                 }if (word.charAt(i) != charsAnswer[i]){    // сравниваем слова посимвольно
