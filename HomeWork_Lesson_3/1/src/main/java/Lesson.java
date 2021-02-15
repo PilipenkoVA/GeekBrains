@@ -29,9 +29,12 @@ public class Lesson {
             }
             char[] charsAnswer = answer.toCharArray();     // из введенного слова делаем массив для проведения посимвольной проверки
             for (int i = 0; i < lenWord; i++) {            //  условие массива (определяем количество символов в загаданном слове
-                if (i >= charsAnswer.length) break;
-                if (word.charAt(i) != charsAnswer[i]);     // сравниваем слова посимвольно
+                if (i >= charsAnswer.length) {
+                    break;
+                }if (word.charAt(i) != charsAnswer[i]){    // сравниваем слова посимвольно
                     charsAnswer[i] = '#';                  // если символ не совпал производие его замену на символ "#"
+                }
+
             }
             String masAnswer = new String(charsAnswer);    //   получаем массив после сравнения слов
             StringBuffer sb = new StringBuffer(masAnswer); //   преабразуем массив в строку
