@@ -37,7 +37,6 @@ public class Lesson {
             StringBuffer sb = new StringBuffer(masAnswer); //   преабразуем массив в строку
             sb = new StringBuffer(sb);
             System.out.println(sb.replace(2, 14, "#############")); // открываем первые 2 буквы если совпали, а далее производим замену символов на "#"
-
         }
         while (true);
 
