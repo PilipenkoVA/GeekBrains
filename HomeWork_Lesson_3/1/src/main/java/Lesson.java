@@ -27,18 +27,17 @@ public class Lesson {
                 System.out.println("Вы угадали слово, игра закончена!!!");
                 break;
             }
-            //ДОРАБОТАТЬ: так как наш игрок не угадал то будем готовить для него подсказку из начальных букв
-            char[] charsAnswer = answer.toCharArray();
-            for (int i = 0; i < lenWord; i++) {
-                if (i >= charsAnswer.length){
-                    break;
-                }if (word.charAt(i) != charsAnswer[i]){
-                    charsAnswer[i] = '#';
-                }
+            char[] charsAnswer = answer.toCharArray();     // из введенного слова делаем массив для проведения посимвольной проверки
+            for (int i = 0; i < lenWord; i++) {            //  условие массива (определяем количество символов в загаданном слове
+                if (i >= charsAnswer.length) break;
+                if (word.charAt(i) != charsAnswer[i]);     // сравниваем слова посимвольно
+                    charsAnswer[i] = '#';                  // если символ не совпал производие его замену на символ "#"
             }
-            StringBuilder comment = new StringBuilder(String.valueOf(charsAnswer));
-            for (int i = comment.length(); i < 15; i++) comment.append("#");
-            System.out.println(comment);
+            String masAnswer = new String(charsAnswer);    //   получаем массив после сравнения слов
+            StringBuffer sb = new StringBuffer(masAnswer); //   преабразуем массив в строку
+            sb = new StringBuffer(sb);
+            System.out.println(sb.replace(2, 14, "#############")); // открываем первые 2 буквы если совпали, а далее производим замену символов на "#"
+
         }
         while (true);
 
