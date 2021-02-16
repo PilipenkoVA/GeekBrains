@@ -2,9 +2,10 @@ public class Text {
 
 
     public static void main(String[] args) {
-        isOne();
+//        isOne();
 //        isTwo();
 //        isFree();
+        isFour();
 
     }
     private static void isOne() {                        // ПРИМЕР: "Многомеоного массива с разными значениями"
@@ -52,4 +53,23 @@ public class Text {
             System.out.print(arr[i] + " ");       // Выводим на консоль со значениями (главное находится в "for")
         }
     }
+    private static void isFour() {                                  // ПРИМЕР: "Определяем "MAX" и "MIN" значение в массиве"
+        int[] arr5 = {5, 7, 3, 1, 9, 6, 4, 2, 8};
+        int min = arr5[0], max = arr5[0], indMax = 0, indMin = 0;   // Прописываем переменные ("min", "max", "indMax", "indMin")
+
+        for (int i = 0; i < arr5.length; i++) {                     // Пропичываем условие массива
+
+            if (arr5[i] > max) {                                    // Если: значение индекса [i] в массиве MAX (т.е. максимальное)
+                max = arr5[i];                                      // Значит: "max" будет == этому (значению индекса [i])
+                indMax = i;                                         // а так же "indMax" будет == этому (индексу [i])
+            }
+            if (arr5[i] < min) {                                    // Если: значение индекса [i] в массиве MIN (т.е. максимальное)
+                min = arr5[i];                                      // Значит: "min" будет == этому (значению индекса [i])
+                indMin = i;                                         // а так же "indMin" будет == этому (индексу [i])
+            }
+        }
+        System.out.println("Максимальный элемент находится в массиве под индексом " + indMax + " со значением  = " + max);
+        System.out.println("Минимальный элемент находится в массиве под индексом " + indMin + " со значением  = " + min);
+    }
+    
 }
