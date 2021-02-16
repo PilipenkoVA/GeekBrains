@@ -7,20 +7,23 @@ public class Text {
 //        isFree();
 
     }
-    private static void isOne() {
-        int[] arr = new int[5];
-        int[] arr = {3, 2, 6};
+    private static void isOne() {                        // ПРИМЕР: "Многомеоного массива с разными значениями"
+        int[][] arr = new int[5][5];                     // Создаем массивы
 
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length ; j++) {
-                arr[i] = 1;
-                System.out.print(arr[i][j] + "  ");
-            }
-        }
+            for (int j = 0; j < arr[i].length ; j++) {
+                                                             // Определяем взаимосвязь i от j для прописывания услови (что мы хотим получить)
+                if (i == j || j == arr[i].length - 1 - i) {  // Если (i == j)  или (j == ширине i - 1 + i)
+                    arr[i][j] = 1;                           // ставим "1"
+                }
+                System.out.print(arr[i][j] + " ");
 
+            }
+            System.out.println();
+        }
     }
 
-    private static void isTwo(){                       // ПРИМЕР: "Многомеоного массива"
+    private static void isTwo(){                       // ПРИМЕР: "Многомеоного массива с одинаковыми значениями"
         int[][] foo = new int[10][10];                 // Создаем массивы
 
         for (int i = 0; i < foo.length; i++){          // Прописываем условие массива №1
@@ -40,10 +43,10 @@ public class Text {
                                                   //                                        (println-напечатается вниз)
         }
 
-        for (int i = 0; i < arr.length; i++) {    // Прописываем условие массива еще раз
+        for (int i = 0; i < arr.length; i++) {    // Прописываем условие нашего массива еще раз если хотим задать ему значения
             arr[i] = i + 1;                       // задаем значение индексам
         }
-        System.out.println();                     // Для разделения массивов
+        System.out.println();                     // Для разделения первого и второго массивов (ПРОБЕЛ) иначе "все будет в одной строке"
 
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");       // Выводим на консоль со значениями (главное находится в "for")
