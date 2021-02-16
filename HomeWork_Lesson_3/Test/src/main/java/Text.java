@@ -3,9 +3,9 @@ public class Text {
 
     public static void main(String[] args) {
 //        isOne();
-//        isTwo();
+        isTwo();
 //        isFree();
-        isFour();
+//        isFour();
 
     }
     private static void isOne() {                        // ПРИМЕР: "Многомеоного массива с разными значениями"
@@ -24,12 +24,13 @@ public class Text {
         }
     }
 
-    private static void isTwo(){                       // ПРИМЕР: "Многомеоного массива с одинаковыми значениями"
+    private static void isTwo(){                       // ПРИМЕР: "Многомеоного массива таблица умножения"
         int[][] foo = new int[10][10];                 // Создаем массивы
 
         for (int i = 0; i < foo.length; i++){          // Прописываем условие массива №1
             for (int j = 0; j < foo[i].length; j++){   // Прописываем условие массива №2
-                foo[i][j] = 1;                         // задаем значение индексам
+                foo[i][j] = (i + 1) * (j + 1);         // задаем значение индексам (таблица умножения) рисуем массив чтобы понять взаимосвязь
+                //foo[i][j] = 1;                       // разкомментить чтобы понять как выглядит массив из "1"
                 System.out.print(foo[i][j] + " ");
             }
             System.out.println();                      // Если не пропечатать 1 - "все будет в одной строке"
@@ -71,5 +72,5 @@ public class Text {
         System.out.println("Максимальный элемент находится в массиве под индексом " + indMax + " со значением  = " + max);
         System.out.println("Минимальный элемент находится в массиве под индексом " + indMin + " со значением  = " + min);
     }
-    
+
 }
