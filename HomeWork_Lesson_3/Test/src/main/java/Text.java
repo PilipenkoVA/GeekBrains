@@ -6,8 +6,8 @@ public class Text {
 //        isTwo();
 //        isFree();
 //        isFour();
-        int[] arr = {1, 1, 1, 2, 1, 4, 3, 3, 4};                        // создаем массив
-        System.out.println("Answer to task six = " + isFive(arr));      // Передаем его в метод
+        int[] arr = {1, 1, 1, 2, 1, 4, 3, 3, 4};                        // создаем массив для 6 задания
+        System.out.println("Answer to task six = " + isFive(arr));      // Передаем его в метод для 6 задания
 
     }
     private static void isOne() {                        // ПРИМЕР: "Многомеоного массива с разными значениями"
@@ -75,13 +75,13 @@ public class Text {
         System.out.println("Минимальный элемент находится в массиве под индексом " + indMin + " со значением  = " + min);
     }
     private static boolean isFive(int[] arr) {
-        int lSum, rSum;
+        int lSum, rSum;                                  // назначаем переменные правой и левой части
 
-        for (int i = 0; i < arr.length + 1; i++) {
-            lSum = 0;
+        for (int i = 0; i < arr.length + 1; i++) {       // прописываем цикл для строки массива
+            lSum = 0;                                    // задаем значение переменным
             rSum = 0;
 
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i; j++) {                // прописываем цикл для столбцов массива
                 lSum += arr[j];
             }
 
