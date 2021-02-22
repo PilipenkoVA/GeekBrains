@@ -8,6 +8,7 @@ public class Lesson {
     private static char empty_DOT = '.';
     private static char player_DOT = 'X';
     private static char comp_DOT = '0';
+    private static int to_WIN = 3;
 
     private static Scanner scanner;
     private static char[][] map = new char[size_Y][size_X];     // СОЗДАЕМ ПОЛЕ ПО УКАЗАННЫМ НАМИ РАЗМЕРАМ
@@ -20,16 +21,25 @@ public class Lesson {
             playerStep();
             printField();
             System.out.println();
-
-            compStep();
-            printField();
-            System.out.println();
-
+            if (checkWin(player_DOT)){
+                System.out.println("YOU WIN");
+                break;
+            }
             if (checkDraw()){
                 System.out.println("Игра закончена (Нет свободных ходов)");
                 break;
             }
-
+            compStep();
+            printField();
+            System.out.println();
+            if (checkWin(comp_DOT)){
+                System.out.println("YOU LOSE");
+                break;
+            }
+            if (checkDraw()){
+                System.out.println("Игра закончена (Нет свободных ходов)");
+                break;
+            }
             try {
                 Thread.sleep(1000);
             }catch (InterruptedException ignored){
@@ -72,7 +82,7 @@ public class Lesson {
             }
             scanner.nextLine();
         }while (!isValid(y, x));
-        map [y][x] = player_DOT;
+        isChar(y, x, player_DOT);
 
     }
     private static boolean isValid (int x, int y){                 // (4) - "ОПРЕДЕЛЯЕМ ВОЗМОЖНОСТЬ ОСУЩЕСТВЛЕНИЯ ХОДА"
@@ -90,7 +100,7 @@ public class Lesson {
             x = random.nextInt(size_X);
             y = random.nextInt(size_Y);
         }while (!isValid(y, x));
-        map [y][x] = comp_DOT;
+        isChar(y, x, comp_DOT);
 
     }
     private static boolean checkDraw() {                          // (6) - "ПРОВЕРКА НА НИЧЬЮ"
@@ -104,17 +114,31 @@ public class Lesson {
         return true;                                               // если на поле нет пустых мест (конец игры "НИЧЬЯ")
 
     }
-    private static void checkWIN(char dot){                        // (7) - ПРОВЕРКА ПОБЕДЫ
-        for (int i = 0; i < 3; i++)
-            if ((table[i][0] == dot && table[i][1] == dot && table[i][2] == dot) || (table[0][i] == dot && table[1][i] == dot && table[2][i] == dot)){
-                return true;
-            }esle {
-            ((table[0][0] == dot && table[1][1] == dot && table[2][2] == dot) || (table[2][0] == dot && table[1][1] == dot && table[0][2] == dot));
-            return true;
+    private static void isChar(int y, int x, char sym){            // присваиваем ходу имя
+        map[y][x] = sym;
+    }
+
+    private static boolean checkWin(char dot) {                         // (7) - ПРОВЕРКА ПОБЕДЫ
+        for (int i = 0; i < size_Y; i++) {
+            for (int j = 0; j < size_X; j++) {
+                if (checkLine(i, j, 0, 1,  dot)) return true;   // проверим линию по х
+                if (checkLine(i, j, 1, 1,  dot)) return true;   // проверим по диагонали х у
+                if (checkLine(i, j, 1, 0,  dot)) return true;   // проверим линию по у
+                if (checkLine(i, j, -1, 1, dot)) return true;   // проверим по диагонали х -у
             }
         }
         return false;
-
+    }
+    private static boolean checkLine(int y, int x, int vy, int vx, char sym){     // проверяем
+        int wayX = x + (to_WIN - 1) * vx;
+        int wayY = y + (to_WIN - 1) * vy;
+        if (wayX < 0 || wayY < 0 || wayX > size_X - 1 || wayY > size_Y - 1) return false;
+        for (int i = 0; i < to_WIN; i++) {
+            int itemY = y + i * vy;
+            int itemX = x + i * vx;
+            if (map[itemY][itemX] != sym) return false;
+        }
+        return true;
     }
 
 }
