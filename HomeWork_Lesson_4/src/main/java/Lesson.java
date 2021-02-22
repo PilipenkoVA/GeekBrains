@@ -55,7 +55,7 @@ public class Lesson {
                 System.out.print(map[i][j] + "|");                // палочка в каждом (столбце)
             }
             System.out.println();                                 // если не будет то все напечатается в одну строку
-        }
+        }                                                         // т.к. есть 'ln' и печать переходит на новую строку
 
     }
     private static void playerStep(){                             // (3) - "ХОД ИГРОКА"
@@ -104,8 +104,17 @@ public class Lesson {
         return true;                                               // если на поле нет пустых мест (конец игры "НИЧЬЯ")
 
     }
-    private static void checkWIN(){
-        
+    private static void checkWIN(char dot){                        // (7) - ПРОВЕРКА ПОБЕДЫ
+        for (int i = 0; i < 3; i++)
+            if ((table[i][0] == dot && table[i][1] == dot && table[i][2] == dot) || (table[0][i] == dot && table[1][i] == dot && table[2][i] == dot)){
+                return true;
+            }esle {
+            ((table[0][0] == dot && table[1][1] == dot && table[2][2] == dot) || (table[2][0] == dot && table[1][1] == dot && table[0][2] == dot));
+            return true;
+            }
+        }
+        return false;
+
     }
 
 }
