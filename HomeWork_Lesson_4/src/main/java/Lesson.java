@@ -8,7 +8,7 @@ public class Lesson {
     private static char empty_DOT = '.';
     private static char player_DOT = 'X';
     private static char comp_DOT = '0';
-    private static int to_WIN = 3;
+    private static int to_WIN = 4;
 
     private static Scanner scanner;
     private static char[][] map = new char[size_Y][size_X];     // СОЗДАЕМ ПОЛЕ ПО УКАЗАННЫМ НАМИ РАЗМЕРАМ
@@ -114,7 +114,7 @@ public class Lesson {
         return true;                                               // если на поле нет пустых мест (конец игры "НИЧЬЯ")
 
     }
-    private static void isChar(int y, int x, char sym){            // присваиваем ходу имя
+    private static void isChar(int y, int x, char sym){            
         map[y][x] = sym;
     }
 
@@ -129,17 +129,16 @@ public class Lesson {
         }
         return false;
     }
-    private static boolean checkLine(int y, int x, int vy, int vx, char sym){     // проверяем
-        int wayX = x + (to_WIN - 1) * vx;
-        int wayY = y + (to_WIN - 1) * vy;
+    private static boolean checkLine(int y, int x, int dy, int dx, char sym){
+        int wayX = x + (to_WIN - 1) * dx;
+        int wayY = y + (to_WIN - 1) * dy;
         if (wayX < 0 || wayY < 0 || wayX > size_X - 1 || wayY > size_Y - 1) return false;
         for (int i = 0; i < to_WIN; i++) {
-            int itemY = y + i * vy;
-            int itemX = x + i * vx;
+            int itemY = y + i * dy;
+            int itemX = x + i * dx;
             if (map[itemY][itemX] != sym) return false;
         }
         return true;
     }
-
 }
 
