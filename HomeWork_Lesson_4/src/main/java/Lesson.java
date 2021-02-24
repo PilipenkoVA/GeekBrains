@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class Lesson {
 
-    private static int size_X = 5;                              // РАЗМЕРЫ ПОЛЯ (СТОЛБЦЫ)
-    private static int size_Y = 5;                              // РАЗМЕРЫ ПОЛЯ (СТРОКИ)
+    private static int size_X = 5;
+    private static int size_Y = 5;
     private static char empty_DOT = '.';
     private static char player_DOT = 'X';
     private static char comp_DOT = '0';
     private static int to_WIN = 4;
 
     private static Scanner scanner;
-    private static char[][] map = new char[size_Y][size_X];     // СОЗДАЕМ ПОЛЕ ПО УКАЗАННЫМ НАМИ РАЗМЕРАМ
+    private static char[][] map = new char[size_Y][size_X];
 
     public static void main(String[] args) {
         initField();
@@ -26,7 +26,7 @@ public class Lesson {
                 break;
             }
             if (checkDraw()){
-                System.out.println("Игра закончена (Нет свободных ходов)");
+                System.out.println("THE END (Нет свободных ходов)");
                 break;
             }
             compStep();
@@ -37,11 +37,11 @@ public class Lesson {
                 break;
             }
             if (checkDraw()){
-                System.out.println("Игра закончена (Нет свободных ходов)");
+                System.out.println("THE END (Нет свободных ходов)");
                 break;
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(700);
             }catch (InterruptedException ignored){
             }
 
@@ -50,25 +50,25 @@ public class Lesson {
 
 
     }
-    private static void initField(){                              // (1) - "ИНИЦИАЛИЗАЦИЯ ПОЛЯ"
-        scanner = new Scanner(System.in);                         // (старт) сканера
+    private static void initField(){
+        scanner = new Scanner(System.in);
         for (int i = 0; i < size_Y; i++){
             for (int j = 0; j < size_X; j++){
                 map[i][j] = empty_DOT;
             }
         }
     }
-    private static void printField() {                            // (2) - "ПРОРИСОВКА ПОЛЯ"
-        for (int i = 0; i < size_Y; i++) {                        // (строки)
-            System.out.print("|");                                // палочка перед каждой (строкой)
-            for (int j = 0; j < size_X; j++) {                    // (столбцы)
-                System.out.print(map[i][j] + "|");                // палочка в каждом (столбце)
+    private static void printField() {
+        for (int i = 0; i < size_Y; i++) {
+            System.out.print("|");
+            for (int j = 0; j < size_X; j++) {
+                System.out.print(map[i][j] + "|");
             }
-            System.out.println();                                 // если не будет то все напечатается в одну строку
-        }                                                         // т.к. есть 'ln' и печать переходит на новую строку
+            System.out.println();
+        }
 
     }
-    private static void playerStep(){                             // (3) - "ХОД ИГРОКА"
+    private static void playerStep(){
         int x = -1;
         int y = -1;
         do{
@@ -85,14 +85,14 @@ public class Lesson {
         isChar(y, x, player_DOT);
 
     }
-    private static boolean isValid (int x, int y){                 // (4) - "ОПРЕДЕЛЯЕМ ВОЗМОЖНОСТЬ ОСУЩЕСТВЛЕНИЯ ХОДА"
-        if (x < 0 || y < 0 || x > map.length || y > map.length) {
+    private static boolean isValid (int x, int y){
+        if (x < 0 || y < 0 || x > size_X || y > size_Y) {
             return false;
         }
         return map[x][y] == empty_DOT;
 
     }
-    private static void compStep(){                                // (5) - "ХОД КОМПЬЮТЕРА"
+    private static void compStep(){
         Random random = new Random();
         int x;
         int y;
@@ -103,28 +103,28 @@ public class Lesson {
         isChar(y, x, comp_DOT);
 
     }
-    private static boolean checkDraw() {                          // (6) - "ПРОВЕРКА НА НИЧЬЮ"
+    private static boolean checkDraw() {
         for (int i = 0; i < size_Y; i++) {
             for (int j = 0; j < size_X; j++) {
-                if (map[i][j] == empty_DOT){                       // если на поле есть пустые места (продолжаем игру)
+                if (map[i][j] == empty_DOT){
                     return false;
                 }
             }
         }
-        return true;                                               // если на поле нет пустых мест (конец игры "НИЧЬЯ")
+        return true;
 
     }
-    private static void isChar(int y, int x, char sym){            
+    private static void isChar(int y, int x, char sym){
         map[y][x] = sym;
     }
 
-    private static boolean checkWin(char dot) {                         // (7) - ПРОВЕРКА ПОБЕДЫ
+    private static boolean checkWin(char dot) {
         for (int i = 0; i < size_Y; i++) {
             for (int j = 0; j < size_X; j++) {
-                if (checkLine(i, j, 0, 1,  dot)) return true;   // проверим линию по х
-                if (checkLine(i, j, 1, 1,  dot)) return true;   // проверим по диагонали х у
-                if (checkLine(i, j, 1, 0,  dot)) return true;   // проверим линию по у
-                if (checkLine(i, j, -1, 1, dot)) return true;   // проверим по диагонали х -у
+                if (checkLine(i, j, 0, 1,  dot)) return true;
+                if (checkLine(i, j, 1, 1,  dot)) return true;
+                if (checkLine(i, j, 1, 0,  dot)) return true;
+                if (checkLine(i, j, -1, 1, dot)) return true;
             }
         }
         return false;
@@ -141,4 +141,3 @@ public class Lesson {
         return true;
     }
 }
-
