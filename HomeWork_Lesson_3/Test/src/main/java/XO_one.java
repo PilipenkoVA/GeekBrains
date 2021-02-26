@@ -195,6 +195,9 @@ public class XO_one {
 //                    if(subLeftDiag1==4){
 //                        return true;
 //                    }
+//                    if (j == map[i].length - 1 - l - i && map[i][j] == empty_DOT) {       // нехватает одной диагонали
+//                        subLeftDiag = 0;
+//                    }
 
                 }
                 countX = countY = 0;
