@@ -169,15 +169,7 @@ public class XO_one {
                 if (j == i + 1 && map[i][j] == empty_DOT) {
                     subRightDiag = 0;
                 }
-                if (i == j + 1 && map[i][j] == c) {                                           // нижняя левая
-                    subRightDiag1++;
-                }
-                if (subRightDiag1 == 4) {
-                    return true;
-                }
-                if (i == j + 1 && map[i][j] == empty_DOT) {
-                    subRightDiag1 = 0;
-                }
+
                 if (j == map[i].length - 2 - i && map[i][j] == c) {                           // верхняя правая
                     subLeftDiag++;
                 }
@@ -186,6 +178,15 @@ public class XO_one {
                 }
                 if (j == map[i].length - 2 - i && map[i][j] == empty_DOT) {
                     subLeftDiag = 0;
+                }
+                if (i == j + 1 && map[i][j] == c) {                                           // нижняя левая
+                    subRightDiag1++;
+                }
+                if (subRightDiag1 == 4) {
+                    return true;
+                }
+                if (i == j + 1 && map[i][j] == empty_DOT) {
+                    subRightDiag1 = 0;
                 }
                 if(j == 1 + map[i].length - 1 - i && map[i][j] == c){                        // нижняя правая
                     subLeftDiag1++;
@@ -196,7 +197,6 @@ public class XO_one {
                 if (j == 1 + map[i].length - 1 - i && map[i][j] == empty_DOT) {
                     subRightDiag1 = 0;
                 }
-
             }
             countX = countY = 0;
         }return false;
