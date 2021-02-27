@@ -119,90 +119,87 @@ public class XO_one {
 
     }                                                                 // (7) - ПРОВЕРКА НА ПОБЕДУ
 
-    public static boolean checkWin(char c) {                  // БЫЛО ДОБАВЛЕННО ""
-        int countX = 0, countY = 0, countL = 0, countR = 0;
-        for (int l = 1; l < size_X - 3; l++) {
-            int subRightDiag = 0, subRightDiag1 = 0;
-            int subLeftDiag = 0, subLeftDiag1 = 0;
-            for (int i = 0; i < map.length; i++) {
-                for (int j = 0; j < map[i].length; j++) {
-                    if (map[i][j] == c) {
-                        countX++;
-                    }
-                    if (countX == 4) {
-                        return true;
-                    }
-                    if (map[i][j] == empty_DOT && countX < 4) {
-                        countX = 0;
-                    }
-                    if (map[j][i] == c) {
-                        countY++;
-                    }
-                    if (countY == 4) {
-                        return true;
-                    }
-                    if (map[j][i] == empty_DOT && countY < 4) {
-                        countY = 0;
-                    }
-                    if (i == j && map[i][j] == c) {
-                        countR++;
-                    }
-                    if (i == j && map[i][j] == empty_DOT && countR < 4) {
-                        countR = 0;
-                    }
-                    if (countR == 4) {
-                        return true;
-                    }
-                    if (j == map.length - i - 1 && map[i][j] == c) {
-                        countL++;
-                    }
-                    if (j == map.length - i - 1 && map[i][j] == empty_DOT && countL < 4) {
-                        countL = 0;
-                    }
-                    if (countL == 4) {
-                        return true;
-                    }
-                    if (j == i + l && map[i][j] == c) {
-                        subRightDiag++;
-                    }
-                    if (subRightDiag == 4) {
-                        return true;
-                    }
-                    if (j == i + l && map[i][j] == empty_DOT) {
-                        subRightDiag = 0;
-                    }
-                    if (i == j + l && map[i][j] == c) {
-                        subRightDiag1++;
-                    }
-                    if (subRightDiag1 == 4) {
-                        return true;
-                    }
-                    if (i == j + l && map[i][j] == empty_DOT) {
-                        subRightDiag1 = 0;
-                    }
-                    if (j == map[i].length - 1 - l - i && map[i][j] == c) {
-                        subLeftDiag++;
-                    }
-                    if (subLeftDiag == 4) {
-                        return true;
-                    }
-                    if (j == map[i].length - 1 - l - i && map[i][j] == empty_DOT) {       // нехватает одной диагонали
-                        subLeftDiag = 0;
-                    }
-//                    if(i==j+l&&j==map.length-1-j&&map[i][j]==symbol){
-//                        subLeftDiag1++;
-//                    }
-//                    if(subLeftDiag1==4){
-//                        return true;
-//                    }
-//                    if (j == map[i].length - 1 - l - i && map[i][j] == empty_DOT) {       // нехватает одной диагонали
-//                        subLeftDiag = 0;
-//                    }
+    public static boolean checkWin(char c) {
+        int countX = 0, countY = 0, countL = 0, countR = 0, subRightDiag = 0, subRightDiag1 = 0, subLeftDiag = 0, subLeftDiag1 = 0;
 
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j] == c) {                                                         // стороки
+                    countX++;
                 }
-                countX = countY = 0;
+                if (countX == 4) {
+                    return true;
+                }
+                if (map[i][j] == empty_DOT && countX < 4) {
+                    countX = 0;
+                }
+                if (map[j][i] == c) {                                                         // столбцы
+                    countY++;
+                }
+                if (countY == 4) {
+                    return true;
+                }
+                if (map[j][i] == empty_DOT && countY < 4) {
+                    countY = 0;
+                }
+                if (i == j && map[i][j] == c) {                                               // средняя левая
+                    countR++;
+                }
+                if (i == j && map[i][j] == empty_DOT && countR < 4) {
+                    countR = 0;
+                }
+                if (countR == 4) {
+                    return true;
+                }
+                if (j == map.length - i - 1 && map[i][j] == c) {                              // средняя правая
+                    countL++;
+                }
+                if (j == map.length - i - 1 && map[i][j] == empty_DOT && countL < 4) {
+                    countL = 0;
+                }
+                if (countL == 4) {
+                    return true;
+                }
+                if (j == i + 1 && map[i][j] == c) {                                          // верхняя левая
+                    subRightDiag++;
+                }
+                if (subRightDiag == 4) {
+                    return true;
+                }
+                if (j == i + 1 && map[i][j] == empty_DOT) {
+                    subRightDiag = 0;
+                }
+                if (i == j + 1 && map[i][j] == c) {                                           // нижняя левая
+                    subRightDiag1++;
+                }
+                if (subRightDiag1 == 4) {
+                    return true;
+                }
+                if (i == j + 1 && map[i][j] == empty_DOT) {
+                    subRightDiag1 = 0;
+                }
+                if (j == map[i].length - 2 - i && map[i][j] == c) {                           // верхняя правая
+                    subLeftDiag++;
+                }
+                if (subLeftDiag == 4) {
+                    return true;
+                }
+                if (j == map[i].length - 2 - i && map[i][j] == empty_DOT) {
+                    subLeftDiag = 0;
+                }
+                if(j == 1 + map[i].length - 1 - i && map[i][j] == c){                        // нижняя правая
+                    subLeftDiag1++;
+                }
+                if(subLeftDiag1 == 4){
+                    return true;
+                }
+                if (j == 1 + map[i].length - 1 - i && map[i][j] == empty_DOT) {
+                    subRightDiag1 = 0;
+                }
+
             }
-        }
-        return false;
+            countX = countY = 0;
+        }return false;
+
     }
 }
