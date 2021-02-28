@@ -1,15 +1,12 @@
 class Cat extends Animal {
 
-    private static int count = 0;                                        // для счетчика животных
+    private static int count = 0;
 
-    public Cat(String name){                                            // метод определяющий характеристики животного
+    public Cat(String name){
         super(name, 200, -1);
         count++;
     }
 
-    public void catInfo (){                                             // информация с характеристиками животного
-        System.out.println("Животное кошка: " + name + ", может пробежать: " + run_limit + "м., не умеет плавать");
-    }
 
     public static int getCount(){
         return count;
