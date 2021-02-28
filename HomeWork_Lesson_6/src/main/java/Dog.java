@@ -1,15 +1,16 @@
-class Dog extends Animal {
-    int run;
-    int swim;
+public class Dog extends Animal {
 
-    public Dog(String name, int run, int swim){
-        super("Tigr");
-        this.run = run;
-        this.swim = swim;
+    private static int count = 0;
+
+
+    public Dog(String name){
+        super(name, 500, 10);
+        count++;
     }
 
-    public void dogInfo (){
-        System.out.println("Животное собака: кличка " + name + " , может пробежать: " + run + "м. и проплыть: " + swim + "м.");
+    public static int getCount(){
+
+        return count;
     }
 
 }

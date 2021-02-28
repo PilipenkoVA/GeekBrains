@@ -14,10 +14,12 @@ public abstract class Animal {
     }
 
     public static int getCount() {
+
         return count;
     }
 
     public String getName() {
+
         return name;
     }
 
