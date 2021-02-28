@@ -30,6 +30,7 @@ public class Animal {
             System.out.println("Вы указали, не верное значение дистанции, для животного --> "+name);
         }
     }
+    
     public void swim(int lenght){                        // не забыть указать метод "public void" и новую переменную "int lenght"(вводимое растояние)
         if(lenght>swim_light&&lenght>0){
             System.out.println(name+" проплыл "+swim_light+"м. и решил отдохнуть, так как нет сил, а плыть еще "+(lenght-swim_light)+"м.");
