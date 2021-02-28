@@ -21,7 +21,7 @@
          System.out.println("Животное: " + name);
     }
 
-    public void run(){
-         System.out.println("Животное " + " пробежало " + );
-    }
+//    public void run(){
+//         System.out.println("Животное " + " пробежало " + );
+//    }
 }
