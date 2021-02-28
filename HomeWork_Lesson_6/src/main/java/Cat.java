@@ -9,11 +9,13 @@ class Cat extends Animal {
 
 
     public static int getCount(){
+
         return count;
     }
 
-    @Override                                                            // переопределяем метод "Animal"
+    @Override
     public void swim(int lenght){
+
         System.out.println(name+" ни куда не поплыл так как не умеет плавать.");
     }
 }
