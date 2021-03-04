@@ -1,13 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Cat {
 
     private String name;
     private int appetite;
-    private boolean full; // "boolean default = false" - поэтому кот при создании "голодный"
+    private boolean full;                          // "boolean default = false" - поэтому Кот при создании "голодный"
 
     public Cat(String name, int appetite) {
         this.name = name;
@@ -26,7 +22,7 @@ public class Cat {
 
     public void eat(Plate plate) {
 
-        full = plate.decreaseFood(appetite);
+        full = plate.eatFood(appetite);
     }
 
     public void info() {

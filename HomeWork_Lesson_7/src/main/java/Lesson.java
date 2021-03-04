@@ -18,7 +18,6 @@ public class Lesson {
 
     public static void main(String[] args) {
 
-        //5. Создать массив котов и тарелку с едой, попросить всех котов покушать из этой тарелки и потом вывести информацию о сытости котов в консоль
         Cat[] cats = {
                 new Cat("Barsik1", 35),
                 new Cat("Barsik2", 25),
@@ -26,7 +25,7 @@ public class Lesson {
                 new Cat("Barsik4", 28),
                 new Cat("Barsik5", 13),
         };
-        //и тарелку с едой,
+
         Plate plate = new Plate(100);
         plate.inInfo();
         for(Cat itemCat:cats) {
@@ -34,11 +33,6 @@ public class Lesson {
             itemCat.info();
         }
         plate.offInfo();
-
-
-
-
-
 
     }
 }

@@ -10,9 +10,8 @@ public class Plate {
         return food;
     }
 
-    public boolean decreaseFood(int appetite) {
-        if (food - appetite < 0) {
-            //4. Считаем, что если коту мало еды в тарелке, то он ее просто не трогает, то есть не может быть наполовину сыт (это сделано для упрощения логики программы)
+    public boolean eatFood(int appetite) {             // Метод уменьшающий количество еды в тарелке
+        if (food - appetite < 0) {                     // Если коту мало еды в тарелке, он ее не трогает.
             return false;
         }
         else {
@@ -30,8 +29,8 @@ public class Plate {
         System.out.println("\nВ тарелке осталось " + food + " грамм. корма.");
     }
 
-    //6. Добавить в тарелку метод, с помощью которого можно было бы добавлять еду в тарелку
-    public void addFood(int addFood) {
+
+    public void addFood(int addFood) {               // Метод, с помощью которого можно добавлять в тарелку еду
         this.food += addFood;
     }
 
