@@ -31,6 +31,7 @@ public class Plate {
 
 
     public void addFood(int addFood) {               // Метод, с помощью которого можно добавлять в тарелку еду
+
         this.food += addFood;
     }
 
