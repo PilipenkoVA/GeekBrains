@@ -15,7 +15,7 @@ public class AI extends AGamer {
         this.aiLevel = aiLevel;
     }
 
-    // Выстрел компьютера
+    // Ход компьютера
     boolean shot(int x, int y)
     {
         gameField = MainGameField.getInstance();

@@ -6,33 +6,40 @@ import java.awt.event.ActionListener;
 public class GameSettingsForm extends JFrame {
     GameSettingsForm gameSettingsForm = this;
     public GameSettingsForm() {
-        // Далее идёт разметка формы
+
+        // Разметка дополнительного окна
         setTitle("Настройки игры");
-        setBounds(450, 450, 240, 190);
+        setBounds(450, 450, 240, 220);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+
         JLabel jLabelMode = new JLabel("Выберете режим игры:");
         add(jLabelMode);
+
         JRadioButton radioButtonModeTwoPlayers = new JRadioButton("Игрок против игрока");
         add(radioButtonModeTwoPlayers);
         radioButtonModeTwoPlayers.setSelected(true);
         JRadioButton radioButtonModeAgainstAI = new JRadioButton("Игрок против компьютера");
         add(radioButtonModeAgainstAI);
-        JLabel jLabelAILevel = new JLabel("Выберете уровень AI:");
+
+        JLabel jLabelAILevel = new JLabel("Уровень сложности:");
         add(jLabelAILevel);
         JSlider jSlider = new JSlider(0,2,0);
         add(jSlider);
         jSlider.setAlignmentX(LEFT_ALIGNMENT);
         jSlider.setVisible(false);
+
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(radioButtonModeTwoPlayers);
         buttonGroup.add(radioButtonModeAgainstAI);
+
         JLabel jLabelLinesCount = new JLabel("Размер поля (по умолчанию 3 на 3): ");
         add(jLabelLinesCount);
         JTextField jTextFieldLinesCount = new JTextField();
         jTextFieldLinesCount.setMaximumSize(new Dimension(100, 20));
         add(jTextFieldLinesCount);
+
         JButton jButtonSetSettings = new JButton("Начать игру!");
         add(jButtonSetSettings);
         setVisible(true);

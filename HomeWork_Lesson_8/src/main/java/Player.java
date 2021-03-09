@@ -2,8 +2,7 @@ public class Player extends AGamer{
 
     // экземпляр нашего поля
     MainGameField gameField;
-    // готовность к стрельбе, если = 0
-    // то ходит другой игрок
+    // готовность к ходу, если = 0, то ходит другой игрок
     int isShotReady = 1;
 
     // Конструктор
@@ -12,7 +11,7 @@ public class Player extends AGamer{
         this.sign = sign;
     }
 
-    // Выстрел игрока
+    // Ход игрока
     boolean shot(int x, int y)
     {
         gameField = MainGameField.getInstance();

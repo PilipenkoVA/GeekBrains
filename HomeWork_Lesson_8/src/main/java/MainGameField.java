@@ -95,37 +95,37 @@ public class MainGameField extends JPanel {
         if (player1.isShotReady == 1) {
             nextTurn = true;
             player2.isShotReady = 0;
-            System.out.println("Player 1 shot!");
+            System.out.println("PLAYER 1 сделал свой ход!");
             player1.shot(x,y);
         }
         if (player1.win()) {
-            System.out.println("Player 1 WIN!!!");
+            System.out.println("PLAYER 1 Победил!");
             gameOver = true;
-            gameOverMessage = "Player 1 WIN!!!";
+            gameOverMessage = "PLAYER 1 WIN";
         }
         repaint();
         if (isFieldFull() && !player1.win() && !player2.win()) {
             gameOver = true;
-            gameOverMessage = "DRAW!!!";
+            gameOverMessage = "DRAW";
         }
         if (player2.isShotReady == 1) {
             nextTurn = false;
             player1.isShotReady = 0;
-            System.out.println("Player 2 shot!");
+            System.out.println("PLAYER 2 сделал свой ход!");
             player2.shot(x,y);
         }
         if (!gameOver) {
             player2.shot(x, y);
         }
         if (player2.win()) {
-            System.out.println("Player 2 WIN!!!");
+            System.out.println("PLAYER 2 Победил!");
             gameOver = true;
-            gameOverMessage = "Player 2 WIN!!!";
+            gameOverMessage = "PLAYER 2 WIN";
         }
         repaint();
         if (isFieldFull() && !player2.win() && !player1.win()) {
             gameOver = true;
-            gameOverMessage = "DRAW!!!";
+            gameOverMessage = "DRAW";
         }
         if (nextTurn) {
             player1.isShotReady = 0;
@@ -144,27 +144,27 @@ public class MainGameField extends JPanel {
         if (!gameOver) {
             if (player.shot(x, y)) {
                 if (player.win()) {
-                    System.out.println("Player WIN!!!");
+                    System.out.println("PLAYER Победил!");
                     gameOver = true;
-                    gameOverMessage = "Player WIN!!!";
+                    gameOverMessage = "PLAYER WIN";
                 }
                 if (isFieldFull()) {
                     gameOver = true;
-                    gameOverMessage = "DRAW!!!";
+                    gameOverMessage = "DRAW";
                 }
                 repaint();
                 if (!gameOver) {
                     ai.shot(x, y);
                 }
                 if (ai.win()) {
-                    System.out.println("AI WIN!!!");
+                    System.out.println("COMP. Победил!");
                     gameOver = true;
-                    gameOverMessage = "AI WIN!!!";
+                    gameOverMessage = "COMP.WIN";
                 }
                 repaint();
                 if (isFieldFull() && !ai.win()) {
                     gameOver = true;
-                    gameOverMessage = "DRAW!!!";
+                    gameOverMessage = "DRAW";
                 }
             }
         }
@@ -178,7 +178,7 @@ public class MainGameField extends JPanel {
         return cell[x][y] != NOT_SIGN;
     }
 
-    // Проверка поля на заполнение
+    // Проверка поля на наличие пустых мест
     public boolean isFieldFull() {
         for (int i = 0; i < linesCount; i++) {
             for (int j = 0; j < linesCount; j++) {
@@ -189,7 +189,7 @@ public class MainGameField extends JPanel {
         return true;
     }
 
-    // Проверяем линию на равенство значений
+    // Проверяем линию
     public boolean checkLine(int start_x, int start_y, int dx, int dy, String sign) {
         for (int i = 0; i < linesCount; i++) {
             if (cell[start_x + i * dx][start_y + i * dy] != sign)
@@ -199,8 +199,7 @@ public class MainGameField extends JPanel {
     }
 
     // Проверка победы
-    // Подробнее про эти методы рассказывается в статье, в которой мы писали
-    // эту игру в процедурном стиле
+
     public boolean checkWin(String sign) {
         for (int i = 0; i < linesCount; i++) {
             // проверяем строки
@@ -228,7 +227,7 @@ public class MainGameField extends JPanel {
                 if (cell[i][j] != NOT_SIGN) {
                     if (cell[i][j] == "X") {
                         // Рисуем крестик
-                        g.setColor(Color.RED);
+                        g.setColor(Color.MAGENTA);
                         g.drawLine((i * cellSize), (j * cellSize), (i + 1) * cellSize, (j + 1) * cellSize);
                         g.drawLine((i + 1) * cellSize, (j * cellSize), (i * cellSize), (j + 1) * cellSize);
                     }
@@ -243,11 +242,10 @@ public class MainGameField extends JPanel {
 
         if (gameOver) {
             // Отрисовка сообщения при завершении игры
+
             g.setColor(Color.BLACK);
-            g.fillRect(0, FIELD_SIZE / 2, FIELD_SIZE, FIELD_SIZE / 8);
-            g.setColor(Color.RED);
-            g.setFont(new Font("Tahoma", 10, 40));
-            g.drawString(gameOverMessage, 0, 19 * FIELD_SIZE / 32);
+            g.setFont(new Font("Крестики и Нолики", 10, 55));
+            g.drawString(gameOverMessage, 40, 17 * FIELD_SIZE / 32);
         }
     }
 }
