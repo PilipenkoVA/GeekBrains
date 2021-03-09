@@ -19,6 +19,7 @@ public class Animal {
     }
 
     public static int getCount() {                       // необходимо указать "public static" иначе не будет считаться
+
         return count;
     }
     public void run(int lenght){                         // не забыть указать метод "public void" и новую переменную "int lenght"
