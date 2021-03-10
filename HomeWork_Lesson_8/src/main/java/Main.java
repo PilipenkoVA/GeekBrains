@@ -1,6 +1,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        MainForm gameForm = new MainForm();
+        XO_grafick xo = new XO_grafick();
     }
 }
