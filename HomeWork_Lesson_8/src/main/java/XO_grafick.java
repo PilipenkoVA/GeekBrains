@@ -11,7 +11,6 @@ public class XO_grafick extends JFrame {
     private static final int SIZE = 3;
     private static JLabel[][] jPanel = new JLabel[SIZE][SIZE];
 
-
     public XO_grafick(){
         setTitle("Крестики и нолики");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -71,9 +70,6 @@ public class XO_grafick extends JFrame {
         setVisible(true);
     }
 
-
-
-
     private int two_Window(int option){
         switch (option) {
             case (0):
@@ -106,7 +102,6 @@ public class XO_grafick extends JFrame {
         jPanel[y][x].setEnabled(false);
 
     }
-
 
     private boolean isWinner(String symbol){
         int countX=0,countY=0,countL=0,countR=0;
@@ -182,6 +177,7 @@ public class XO_grafick extends JFrame {
             }
         }
     }
+
     private int countField(){
         int count=0;
         for (int i = 0; i < jPanel.length; i++) {
@@ -193,6 +189,7 @@ public class XO_grafick extends JFrame {
         }
         return count;
     }
+    
     private void smallWindow() {
         JOptionPane.showConfirmDialog(null, "Игра крестики и нолики\nверсия 1.0 без ИИ\nАвтор: Пилипенко В.А.", "Информация", JOptionPane.CLOSED_OPTION);
     }
